@@ -172,10 +172,11 @@ p{margin:0}
 .shot:hover img{transform:scale(1.045)}
 .shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:2.6rem 1.15rem .95rem;color:#fff;font-size:.9rem;font-weight:550;letter-spacing:-.01em;
   background:linear-gradient(to top,rgba(15,12,10,.85),rgba(15,12,10,.35) 55%,transparent)}
-@media(min-width:820px){
-  .gal{grid-template-columns:1.35fr 1fr}
-  .gal>*:nth-child(1){grid-row:span 2;aspect-ratio:3/4}
-  .gal>*:nth-child(4){grid-column:span 2;aspect-ratio:21/8}
+/* tre scatti in griglia piu una panoramica a tutta larghezza: ogni foto
+   sta nel formato in cui e stata scattata, senza ritagli forzati */
+@media(min-width:760px){
+  .gal{grid-template-columns:repeat(3,1fr)}
+  .gal>*:last-child{grid-column:1 / -1;aspect-ratio:21/8}
 }
 
 /* ---------- come funziona ---------- */
@@ -313,20 +314,20 @@ p{margin:0}
       <p class="lead rv rv-d1" style="margin-top:1.2rem;max-width:52ch">Una prospettiva diversa per controllare ciò che da terra non riesci a vedere.</p>
       <div class="gal">
         <figure class="shot rv">
-          <img src="assets/img/veduta-provincia-mantova.jpg" width="4000" height="2250" alt="Veduta dall'alto di un intero isolato residenziale nella provincia di Mantova" loading="lazy" decoding="async">
-          <figcaption>Vista d'insieme della copertura</figcaption>
-        </figure>
-        <figure class="shot rv rv-d1">
           <img src="assets/img/camino-tegole-vecchie.jpg" width="1200" height="900" alt="Camino in mattoni e tegole invecchiate viste dal drone" loading="lazy" decoding="async">
           <figcaption>Camini e converse</figcaption>
         </figure>
-        <figure class="shot rv rv-d2">
+        <figure class="shot rv rv-d1">
           <img src="assets/img/tetto-pannelli-solari.webp" width="1200" height="900" alt="Tetto con pannelli solari e antenne ripreso dall'alto" loading="lazy" decoding="async">
           <figcaption>Impianti e zone difficili da raggiungere</figcaption>
         </figure>
-        <figure class="shot rv rv-d1">
+        <figure class="shot rv rv-d2">
           <img src="assets/img/hero-strada-mantova.webp" width="1600" height="1000" alt="Coperture a schiera viste in sequenza dal drone" loading="lazy" decoding="async">
-          <figcaption>Coperture a schiera, controllate in sequenza</figcaption>
+          <figcaption>Coperture a schiera, in sequenza</figcaption>
+        </figure>
+        <figure class="shot rv rv-d1">
+          <img src="assets/img/veduta-provincia-mantova.webp" width="1400" height="788" alt="Veduta dall'alto di un intero isolato residenziale nella provincia di Mantova" loading="lazy" decoding="async">
+          <figcaption>Vista d'insieme dell'isolato</figcaption>
         </figure>
       </div>
     </div>

@@ -78,7 +78,8 @@ gravità o sulla sicurezza. Serve a te quanto al cliente — non toglierlo.
 
 ## Le fotografie
 
-Le foto in `assets/img/` sono tue, scattate col drone. Quando ne aggiungi altre:
+Le foto in `assets/img/` sono tue, scattate col drone, e sono già tutte ottimizzate per il
+web. Quando ne aggiungi altre:
 
 ```html
 <img src="assets/img/tetto.webp" width="1200" height="900"
@@ -89,11 +90,6 @@ Esportale a 1200 px di lato lungo, convertile in **WebP** su
 [squoosh.app](https://squoosh.app) con qualità 80 e tieniti sotto i 150 KB per foto.
 Tieni sempre `width` e `height` con le proporzioni vere: impediscono alla pagina di
 "saltare" mentre carica.
-
-> **Da sistemare:** `veduta-provincia-mantova.jpg` pesa **4 MB** — non è mai passata da
-> Squoosh, è il file originale del drone a 4000×2250. È in lazy loading, quindi non
-> rallenta il primo schermo, ma su rete mobile sono una quindicina di secondi. Rifalla a
-> 1200 px in WebP: scenderà sotto i 200 KB.
 
 `assets/img/og-cover.svg` è l'anteprima che si vede condividendo il link. Alcune
 piattaforme non leggono gli SVG: quando puoi esporta una JPG 1200×630, chiamala
