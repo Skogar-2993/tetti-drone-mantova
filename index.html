@@ -10,7 +10,8 @@
     nome@esempio.it         la tua email
     https://www.esempio.it  il dominio, senza / finale
     [Nome Cognome]          il tuo nome
-    [Partita IVA]           la tua partita IVA
+  Non ci sono riferimenti a partita IVA: il servizio e reso come
+  prestazione occasionale da persona fisica.
   Telefono e WhatsApp sono gia impostati su +39 334 396 7314.
   Il nome dell'attivita e "Tetto a posto?": verifica che tettoaposto.it sia libero.
   ====================================================================
@@ -413,7 +414,7 @@ p{margin:0}
       <a href="privacy-policy/index.html">Privacy</a>
       <a href="cookie-policy/index.html">Cookie</a>
     </nav>
-    <p class="fine">P. IVA [Partita IVA] · L'ispezione è visiva e fotografica e non sostituisce una perizia tecnica o una verifica strutturale.</p>
+    <p class="fine">Servizio reso da privato come prestazione occasionale. L&rsquo;ispezione è visiva e fotografica e non sostituisce una perizia tecnica o una verifica strutturale.</p>
   </div>
 </footer>
 
@@ -452,16 +453,21 @@ p{margin:0}
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
-  "@type":["ProfessionalService","LocalBusiness"],
-  "@id":"https://www.esempio.it/#attivita",
-  "name":"Tetto a posto?",
-  "alternateName":"Tetto a posto? — Ispezione tetti con drone a Mantova e provincia",
-  "description":"Ispezione visiva e fotografica di tetti e coperture con drone a Mantova e provincia, anche dopo grandine e maltempo.",
+  "@type":"Service",
+  "@id":"https://www.esempio.it/#servizio",
+  "name":"Ispezione tetti con drone",
+  "alternateName":"Tetto a posto?",
+  "serviceType":"Ispezione visiva di coperture con drone",
+  "description":"Controllo visivo e fotografico del tetto con drone a Mantova e provincia per individuare danni da grandine, tegole e coppi spostati, problemi a grondaie, camini e punti difficili da raggiungere.",
   "url":"https://www.esempio.it/",
   "image":"https://www.esempio.it/assets/img/og-cover.svg",
-  "telephone":"+393343967314",
-  "email":"nome@esempio.it",
-  "address":{"@type":"PostalAddress","addressLocality":"Mantova","addressRegion":"MN","addressCountry":"IT"},
+  "provider":{
+    "@type":"Person",
+    "name":"[Nome Cognome]",
+    "telephone":"+393343967314",
+    "email":"nome@esempio.it",
+    "address":{"@type":"PostalAddress","addressLocality":"Mantova","addressRegion":"MN","addressCountry":"IT"}
+  },
   "areaServed":[
     {"@type":"AdministrativeArea","name":"Provincia di Mantova"},
     {"@type":"City","name":"Mantova"},
@@ -473,13 +479,7 @@ p{margin:0}
     {"@type":"City","name":"Castiglione delle Stiviere"},
     {"@type":"City","name":"Asola"},
     {"@type":"City","name":"Viadana"}
-  ],
-  "makesOffer":{"@type":"Offer","itemOffered":{
-    "@type":"Service",
-    "name":"Ispezione tetti con drone",
-    "serviceType":"Ispezione visiva di coperture con drone",
-    "description":"Controllo visivo e fotografico del tetto con drone per individuare danni da grandine, tegole e coppi spostati, problemi a grondaie, camini e punti difficili da raggiungere."
-  }}
+  ]
 }
 </script>
 </body>

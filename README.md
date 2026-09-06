@@ -17,9 +17,12 @@ Cerca e sostituisci in `index.html`, `report/index.html`, `privacy-policy/index.
 | `nome@esempio.it` | la tua email |
 | `https://www.esempio.it` | il dominio, senza `/` finale |
 | `[Nome Cognome]` | il tuo nome |
-| `[Partita IVA]` | la tua partita IVA |
 
 Telefono e WhatsApp sono già impostati su **+39 334 396 7314**.
+
+Nel sito non compare nessuna partita IVA: il servizio è reso come **prestazione
+occasionale** da persona fisica, e i dati strutturati dichiarano una persona, non
+un'impresa.
 
 Poi completa i placeholder fra parentesi quadre nelle due pagine legali (indirizzo,
 fornitore di hosting, tempi di conservazione, data).
@@ -50,17 +53,19 @@ l'indirizzo può aprirlo, quindi non lasciarci dentro dati di clienti.
 
 Sull'hosting attiva compressione gzip o brotli, se puoi.
 
-## Il report per i clienti
+## Il resoconto per i clienti
 
-`report/index.html` è un modello di report da consegnare dopo l'ispezione.
+`report/index.html` è un modello di resoconto da consegnare dopo il controllo. È volutamente
+breve: sei righe di dati, una sintesi, i punti da segnalare, quattro foto.
 
 1. Aprilo nel browser (doppio clic).
 2. Clicca su un campo e scrivi: tutto il testo in grigio corsivo è compilabile.
 3. Carica fino a quattro foto negli spazi in fondo.
 4. **Stampa / PDF** → scegli "Salva come PDF".
 
-Le righe dei rilievi si aggiungono e si tolgono. Il livello di attenzione ha tre gradi:
-*nessuna anomalia*, *da monitorare*, *da approfondire*.
+Le righe si aggiungono e si tolgono. I tre livelli sono *nulla da segnalare*, *da tenere
+d'occhio*, *da far vedere a un tecnico*: dicono cosa merita attenzione senza esprimere
+giudizi tecnici che non ti competono.
 
 **Salva bozza** conserva il testo nel browser se devi interrompere, ma **non le foto**:
 sono troppo pesanti per lo spazio disponibile e vanno ricaricate. Nessun dato esce dal
@@ -99,6 +104,20 @@ piattaforme non leggono gli SVG: quando puoi esporta una JPG 1200×630, chiamala
 2. Invia la sitemap da [Google Search Console](https://search.google.com/search-console).
 3. Apri un **profilo Google Business** con la zona di attività: per "ispezione tetti
    Mantova" conta più di qualsiasi cosa scritta nella pagina.
+
+## Prestazione occasionale: cosa ricordare
+
+Il servizio è reso da privato con prestazione occasionale, quindi:
+
+- si documenta con **ricevuta per prestazione occasionale** con ritenuta d'acconto del
+  20%, non con fattura;
+- oltre **5.000 € lordi all'anno** di compensi scatta l'obbligo di iscrizione alla
+  gestione separata INPS;
+- se l'attività diventa continuativa e organizzata non è più occasionale e serve la
+  partita IVA.
+
+Per i numeri esatti e la tua situazione, sentì un commercialista: qui non c'è nulla di
+personalizzato.
 
 ## Cookie
 
