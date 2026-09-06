@@ -5,7 +5,7 @@ provincia. Un solo file HTML con dentro CSS e JavaScript, nessuna libreria, ness
 scaricato, nessuna richiesta a server esterni. Percorsi relativi: funziona sia online sia
 aprendo `index.html` con un doppio clic.
 
-Pagina: **8 KB** compressa, più le fotografie.
+Pagina: **8 KB** compressa. Fotografie: 279 KB al primo schermo, 936 KB in tutto.
 
 ## Da sostituire prima di pubblicare
 
