@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-hidden="true">
+<style>
+.e{font:600 22px ui-monospace,Consolas,monospace;fill:#D89A78;letter-spacing:.18em}
+.h{font:700 74px "Segoe UI",system-ui,-apple-system,Helvetica,Arial,sans-serif;fill:#FFFDFB;letter-spacing:-.025em}
+.s{font:400 29px "Segoe UI",system-ui,-apple-system,Helvetica,Arial,sans-serif;fill:#C9BDB2}
+</style>
+<rect width="1200" height="630" fill="#1A1614"/>
+<g opacity=".9">
+<path d="M0 470h1200v160H0z" fill="#8C3B1E"/>
+<g fill="#B85428"><path d="M0 470h1200v54H0z"/></g>
+<g fill="#C86A34" opacity=".8"><path d="M0 524h1200v10H0z"/></g>
+<g fill="none" stroke="#6E2C14" stroke-width="5">
+<path d="M-20 524q40 40 80 0q40 40 80 0q40 40 80 0q40 40 80 0q40 40 80 0q40 40 80 0q40 40 80 0q40 40 80 0q40 40 80 0q40 40 80 0q40 40 80 0q40 40 80 0q40 40 80 0q40 40 80 0q40 40 80 0q40 40 80 0"/>
+<path d="M-60 584q40 40 80 0q40 40 80 0q40 40 80 0q40 40 80 0q40 40 80 0q40 40 80 0q40 40 80 0q40 40 80 0q40 40 80 0q40 40 80 0q40 40 80 0q40 40 80 0q40 40 80 0q40 40 80 0q40 40 80 0q40 40 80 0"/></g>
+</g>
+<g transform="translate(1002 236)" opacity=".95">
+<path d="M-38 -8l-44 -28M38 -8l44 -28M-38 10l-44 28M38 10l44 28" stroke="#FFFDFB" stroke-width="7" stroke-linecap="round" fill="none"/>
+<rect x="-40" y="-15" width="80" height="30" rx="10" fill="#FFFDFB"/>
+<circle cx="0" cy="20" r="9" fill="#25D366"/></g>
+<text class="e" x="80" y="176">MANTOVA E PROVINCIA</text>
+<text class="h" x="80" y="272">Ispezione tetti</text>
+<text class="h" x="80" y="354">con drone</text>
+<text class="s" x="80" y="420">Controlla il tuo tetto senza salire e senza ponteggi.</text>
+</svg>
