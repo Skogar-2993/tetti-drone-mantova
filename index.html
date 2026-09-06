@@ -75,8 +75,9 @@ p{margin:0}
 @media(max-width:519px){.btn-row .btn{width:100%}}
 
 /* hero */
-.hero{background:var(--ink);color:var(--paper);background-image:radial-gradient(72% 90% at 88% 6%,rgba(168,66,42,.42),transparent 62%)}
-.hero-in{padding-block:clamp(3.2rem,8vw,5.6rem) clamp(3.4rem,8vw,5.6rem)}
+.hero{background:var(--ink);color:var(--paper);background-image:url('assets/img/hero-strada-mantova.webp'),radial-gradient(72% 90% at 88% 6%,rgba(168,66,42,.42),transparent 62%);background-size:cover;background-position:center;position:relative}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(96deg,rgba(26,22,20,.92) 0%,rgba(26,22,20,.85) 30%,rgba(26,22,20,.4) 60%,rgba(26,22,20,.05) 85%);pointer-events:none}
+.hero-in{padding-block:clamp(3.2rem,8vw,5.6rem) clamp(3.4rem,8vw,5.6rem);position:relative;z-index:1}
 .hero h1{margin-bottom:1.3rem;max-width:16ch}
 .hero .sub{font-size:clamp(1.12rem,2vw,1.34rem);color:#F0E4D9;margin-bottom:.9rem;max-width:30ch}
 .hero .say{color:#B3A79E;margin-bottom:2.1rem;max-width:44ch;font-size:1rem}
@@ -108,6 +109,12 @@ p{margin:0}
 .ftr-in{display:flex;flex-wrap:wrap;gap:.9rem 2rem;justify-content:space-between}
 .ftr a{color:var(--ink-2)}
 .ftr .note{width:100%;margin-top:1.1rem;font-size:.78rem;color:#8C8177}
+
+/* galleria */
+.gal{display:grid;gap:1rem;grid-template-columns:1fr;margin-top:2.2rem}
+@media(min-width:620px){.gal{grid-template-columns:1fr 1fr}}
+.gal-img{position:relative;overflow:hidden;border-radius:8px;aspect-ratio:4/3;background:var(--line)}
+.gal-img img{width:100%;height:100%;object-fit:cover;display:block}
 
 /* barra mobile */
 .dock{position:fixed;inset:auto 0 0 0;z-index:60;display:none;gap:.5rem;padding:.55rem .75rem;padding-bottom:calc(.55rem + env(safe-area-inset-bottom));background:rgba(255,252,248,.97);border-top:1px solid var(--line)}
@@ -166,6 +173,25 @@ p{margin:0}
       <li><b>04</b><span>Ti mando le foto dell'ispezione</span></li>
     </ol>
     <p class="fine">L'ispezione è visiva e fotografica: non sostituisce una perizia tecnica o una verifica strutturale.</p>
+  </section>
+
+  <section class="sec wrap" id="galleria">
+    <span class="eyebrow">Ispezioni dal drone</span>
+    <h2>Quello che vedo dall'alto</h2>
+    <div class="gal">
+      <div class="gal-img">
+        <img src="assets/img/tetto-coppi-dettaglio.webp" width="1200" height="900" alt="Manto di copertura in coppi visto dall'alto con dettagli delle tegole" loading="lazy" decoding="async">
+      </div>
+      <div class="gal-img">
+        <img src="assets/img/veduta-provincia-mantova.jpg" width="4000" height="2250" alt="Veduta panoramica di case nella provincia di Mantova riprese dal drone" loading="lazy" decoding="async">
+      </div>
+      <div class="gal-img">
+        <img src="assets/img/tetto-pannelli-solari.webp" width="1200" height="900" alt="Abitazione con tetto in tegole e pannelli solari vista dall'alto" loading="lazy" decoding="async">
+      </div>
+      <div class="gal-img">
+        <img src="assets/img/camino-tegole-vecchie.jpg" width="1200" height="900" alt="Dettaglio di camino e tegole invecchiate sulla copertura di un edificio" loading="lazy" decoding="async">
+      </div>
+    </div>
   </section>
 
   <section class="band">
