@@ -27,8 +27,9 @@ un'impresa.
 Poi completa i placeholder fra parentesi quadre nelle due pagine legali (indirizzo,
 fornitore di hosting, tempi di conservazione, data).
 
-Nelle FAQ e nel report c'è spazio per il numero di operatore UAS e la polizza
-assicurativa: compilali o togli la riga. Non c'è niente di inventato sul tuo conto —
+Nel piè di pagina del resoconto c'è spazio per il numero di operatore UAS e della polizza:
+compilali una volta e restano. Il sito dichiara "pilota abilitato e assicurato" perché lo
+sei — non c'è niente di inventato sul tuo conto:
 né recensioni, né anni di esperienza, né certificazioni, né prezzi.
 
 ## Il dominio
