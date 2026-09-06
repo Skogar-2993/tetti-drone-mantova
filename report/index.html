@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Report di ispezione — modello da compilare</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+
+<!--
+  ====================================================================
+  MODELLO DI REPORT — strumento interno, non collegato al sito pubblico.
+
+  COME SI USA
+  1. Apri questa pagina nel browser.
+  2. Clicca su un campo e scrivi: tutto il testo grigio e compilabile.
+  3. Carica le foto negli spazi in fondo (restano sul tuo computer).
+  4. "Salva bozza" tiene il testo nel browser se devi interrompere.
+  5. "Stampa / PDF" apre la stampa: scegli "Salva come PDF".
+
+  Le foto NON vengono salvate nella bozza (sono troppo pesanti):
+  se ricarichi la pagina vanno ricaricate.
+  Nessun dato esce da questo computer.
+  ====================================================================
+-->
+
+<style>
+:root{
+  --ink:#16130F; --ink-2:#5F574F; --ink-3:#8B8279;
+  --paper:#fff; --line:#D9D2C9; --line-2:#EDE7E0;
+  --accent:#B4472A; --sand:#F7F3EE;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"Cascadia Mono","Segoe UI Mono","SF Mono",Menlo,Consolas,monospace;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:#E8E3DC;color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+
+/* ---------- barra comandi (non si stampa) ---------- */
+.bar{position:sticky;top:0;z-index:50;background:var(--ink);color:#fff;padding:.7rem 1rem;display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
+.bar h1{font-size:.95rem;margin:0 auto 0 0;font-weight:600;letter-spacing:-.01em}
+.bar button{font:inherit;font-size:.88rem;font-weight:600;padding:.5rem .95rem;border-radius:7px;border:1px solid rgba(255,255,255,.28);background:transparent;color:#fff;cursor:pointer}
+.bar button:hover{background:rgba(255,255,255,.12)}
+.bar button.primary{background:var(--accent);border-color:var(--accent)}
+.bar button.primary:hover{background:#96371F}
+.bar .msg{font-size:.82rem;color:#B9AFA6;min-width:9ch}
+
+/* ---------- foglio A4 ---------- */
+.sheet{width:210mm;min-height:297mm;margin:1.5rem auto;padding:16mm 16mm 14mm;background:var(--paper);box-shadow:0 2px 18px rgba(0,0,0,.14)}
+@media(max-width:820px){.sheet{width:auto;min-height:0;margin:0;padding:1.5rem 1.2rem;box-shadow:none}}
+
+.testata{display:flex;justify-content:space-between;align-items:flex-start;gap:1.5rem;padding-bottom:1rem;border-bottom:2px solid var(--ink)}
+.testata .chi{display:flex;gap:.7rem;align-items:center}
+.testata .nome{font-weight:700;font-size:1.05rem;letter-spacing:-.02em;line-height:1.2}
+.testata .sotto{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);margin-top:.15rem}
+.testata .rec{text-align:right;font-size:.78rem;color:var(--ink-2);line-height:1.7}
+.titolo{margin:1.6rem 0 .3rem;font-size:1.5rem;letter-spacing:-.03em;font-weight:700}
+.rif{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;color:var(--ink-2);text-transform:uppercase}
+
+h2{font-size:.76rem;font-family:var(--mono);font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin:1.9rem 0 .7rem;padding-bottom:.35rem;border-bottom:1px solid var(--line-2)}
+
+.griglia{display:grid;grid-template-columns:1fr 1fr;gap:.1rem 2rem}
+.campo{display:flex;gap:.6rem;padding:.42rem 0;border-bottom:1px dotted var(--line);font-size:.87rem;align-items:baseline}
+.campo .k{flex:0 0 40%;color:var(--ink-2)}
+.campo .v{flex:1;min-width:0;font-weight:550}
+@media(max-width:820px){.griglia{grid-template-columns:1fr}}
+
+/* campi compilabili */
+[contenteditable]{outline:none;border-radius:3px}
+[contenteditable]:focus{background:#FFF6D9;box-shadow:0 0 0 3px #FFF6D9}
+[contenteditable]:empty::before{content:attr(data-ph);color:#B6ADA4;font-weight:400;font-style:italic}
+[contenteditable]:hover:not(:focus){background:#FAF7F3}
+
+/* esito */
+.esito{display:flex;gap:1rem;align-items:flex-start;background:var(--sand);border-left:3px solid var(--accent);padding:1rem 1.15rem;border-radius:0 7px 7px 0;margin-top:.4rem}
+.esito .lab{flex:0 0 auto;font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);padding-top:.2rem}
+.esito .txt{flex:1;font-size:.93rem;min-height:3.2em}
+
+/* tabella rilievi */
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+th{text-align:left;font-family:var(--mono);font-size:.66rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2);padding:.5rem .6rem;border-bottom:1.5px solid var(--ink)}
+td{padding:.6rem;border-bottom:1px solid var(--line-2);vertical-align:top}
+th:nth-child(1),td:nth-child(1){width:22%}
+th:nth-child(3),td:nth-child(3){width:20%}
+select{font:inherit;font-size:.82rem;width:100%;padding:.3rem .4rem;border:1px solid var(--line);border-radius:5px;background:#fff;color:var(--ink)}
+select.l2{border-color:#C9922F;background:#FDF6E7}
+select.l3{border-color:var(--accent);background:#FBEDE8;font-weight:600}
+.addrow{margin-top:.7rem;font:inherit;font-size:.82rem;padding:.42rem .8rem;border:1px dashed var(--line);border-radius:6px;background:none;color:var(--ink-2);cursor:pointer}
+.addrow:hover{border-color:var(--ink-2);color:var(--ink)}
+.delrow{font:inherit;border:0;background:none;color:#B6ADA4;cursor:pointer;padding:0 .2rem;font-size:1.05rem;line-height:1}
+.delrow:hover{color:var(--accent)}
+td.act{width:26px;padding-left:0;padding-right:0}
+
+/* foto */
+.foto{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:.5rem}
+.slot{border:1px solid var(--line-2);border-radius:7px;overflow:hidden;background:var(--sand)}
+.slot .ph{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;position:relative;background:var(--sand)}
+.slot .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.slot .ph label{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.82rem;color:var(--ink-3);text-align:center;padding:1rem}
+.slot .ph.pieno label{inset:auto .4rem .4rem auto;background:rgba(255,255,255,.92);padding:.3rem .55rem;border-radius:5px;font-size:.72rem;color:var(--ink-2)}
+.slot input[type=file]{position:absolute;width:1px;height:1px;opacity:0}
+.slot .cap{padding:.55rem .7rem;font-size:.8rem;border-top:1px solid var(--line-2);background:#fff}
+
+/* limiti */
+.limiti{margin-top:1.5rem;padding:1rem 1.15rem;border:1px solid var(--line);border-radius:7px;background:#FCFAF8;font-size:.79rem;line-height:1.55;color:var(--ink-2)}
+.limiti strong{color:var(--ink);display:block;margin-bottom:.4rem;font-size:.82rem}
+.limiti ul{margin:.5rem 0 0;padding-left:1.1rem}
+.limiti li{margin-bottom:.3rem}
+
+/* firma */
+.firme{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:2.4rem}
+.firma{border-top:1px solid var(--ink);padding-top:.5rem;font-size:.78rem;color:var(--ink-2)}
+.pie{margin-top:2rem;padding-top:.8rem;border-top:1px solid var(--line-2);font-family:var(--mono);font-size:.66rem;letter-spacing:.05em;color:var(--ink-3);display:flex;justify-content:space-between;gap:1rem}
+
+/* ---------- stampa ---------- */
+@page{size:A4;margin:13mm}
+@media print{
+  body{background:#fff;font-size:10.5pt}
+  .bar,.addrow,.delrow,.noprint{display:none!important}
+  .sheet{width:auto;min-height:0;margin:0;padding:0;box-shadow:none}
+  [contenteditable]:hover,[contenteditable]:focus{background:none!important;box-shadow:none!important}
+  [contenteditable]:empty::before{content:"—";font-style:normal;color:#B6ADA4}
+  select{border:0;background:none!important;padding:0;font-weight:600;-webkit-appearance:none;appearance:none}
+  .slot .ph label{display:none}
+  .slot .ph:not(.pieno){display:none}
+  .slot:not(:has(.pieno)){display:none}
+  h2,table,.esito,.limiti,.firme,.slot{break-inside:avoid}
+  tr{break-inside:avoid}
+  h2{break-after:avoid}
+  .foto{break-before:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="bar noprint">
+  <h1>Modello di report — compila, poi stampa in PDF</h1>
+  <span class="msg" id="msg"></span>
+  <button type="button" id="save">Salva bozza</button>
+  <button type="button" id="clear">Svuota</button>
+  <button type="button" class="primary" id="print">Stampa / PDF</button>
+</div>
+
+<div class="sheet">
+
+  <header class="testata">
+    <div class="chi">
+      <svg width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#16130F"/><g fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"><circle cx="16" cy="16" r="6.5"/><path d="M16 4.5v4M16 23.5v4M4.5 16h4M23.5 16h4"/></g><circle cx="16" cy="16" r="2.4" fill="#B4472A"/></svg>
+      <div>
+        <div class="nome" contenteditable data-ph="Nome attività">Ispezione tetti con drone</div>
+        <div class="sotto">Mantova e provincia</div>
+      </div>
+    </div>
+    <div class="rec">
+      <span contenteditable data-ph="Nome Cognome">[Nome Cognome]</span><br>
+      +39 334 396 7314<br>
+      <span contenteditable data-ph="email">nome@esempio.it</span><br>
+      P. IVA <span contenteditable data-ph="partita IVA">[Partita IVA]</span>
+    </div>
+  </header>
+
+  <h2 style="border:0;margin-bottom:0">Report di ispezione visiva della copertura</h2>
+  <p class="rif">Rif. <span contenteditable data-ph="2026-001">2026-001</span> · Redatto il <span contenteditable data-ph="gg/mm/aaaa">gg/mm/aaaa</span></p>
+
+  <h2>Dati dell'immobile e dell'incarico</h2>
+  <div class="griglia">
+    <div class="campo"><span class="k">Committente</span><span class="v" contenteditable data-ph="nome e cognome"></span></div>
+    <div class="campo"><span class="k">In qualità di</span><span class="v" contenteditable data-ph="proprietario / amministratore"></span></div>
+    <div class="campo"><span class="k">Indirizzo</span><span class="v" contenteditable data-ph="via e numero civico"></span></div>
+    <div class="campo"><span class="k">Comune</span><span class="v" contenteditable data-ph="comune (MN)"></span></div>
+    <div class="campo"><span class="k">Tipo di edificio</span><span class="v" contenteditable data-ph="villetta / schiera / condominio"></span></div>
+    <div class="campo"><span class="k">Tipo di copertura</span><span class="v" contenteditable data-ph="coppi / tegole / marsigliesi"></span></div>
+    <div class="campo"><span class="k">Motivo del controllo</span><span class="v" contenteditable data-ph="dopo grandinata / verifica periodica"></span></div>
+    <div class="campo"><span class="k">Falde osservate</span><span class="v" contenteditable data-ph="es. tutte / lato sud ed est"></span></div>
+  </div>
+
+  <h2>Dati del rilievo</h2>
+  <div class="griglia">
+    <div class="campo"><span class="k">Data del volo</span><span class="v" contenteditable data-ph="gg/mm/aaaa"></span></div>
+    <div class="campo"><span class="k">Orario</span><span class="v" contenteditable data-ph="dalle — alle"></span></div>
+    <div class="campo"><span class="k">Condizioni meteo</span><span class="v" contenteditable data-ph="sereno, vento debole"></span></div>
+    <div class="campo"><span class="k">Quota massima</span><span class="v" contenteditable data-ph="es. 25 m dal suolo"></span></div>
+    <div class="campo"><span class="k">Apparecchio</span><span class="v" contenteditable data-ph="modello del drone"></span></div>
+    <div class="campo"><span class="k">Fotogrammi acquisiti</span><span class="v" contenteditable data-ph="numero"></span></div>
+    <div class="campo"><span class="k">Operatore UAS</span><span class="v" contenteditable data-ph="numero di registrazione"></span></div>
+    <div class="campo"><span class="k">Assicurazione</span><span class="v" contenteditable data-ph="compagnia e numero polizza"></span></div>
+  </div>
+
+  <h2>Sintesi</h2>
+  <div class="esito">
+    <span class="lab">Esito</span>
+    <div class="txt" contenteditable data-ph="Riassumi in due o tre righe cosa hai osservato nel complesso. Descrivi solo quello che si vede nelle immagini, senza ipotesi sulle cause o sullo stato strutturale."></div>
+  </div>
+
+  <h2>Rilievi puntuali</h2>
+  <table>
+    <thead>
+      <tr><th>Zona</th><th>Cosa si osserva</th><th>Livello</th><th>Foto</th><th class="act"></th></tr>
+    </thead>
+    <tbody id="righe">
+      <tr>
+        <td contenteditable data-ph="falda sud"></td>
+        <td contenteditable data-ph="descrizione di quello che si vede"></td>
+        <td><select><option>Nessuna anomalia</option><option selected>Da monitorare</option><option>Da approfondire</option></select></td>
+        <td contenteditable data-ph="n."></td>
+        <td class="act"><button type="button" class="delrow" title="Elimina riga">&times;</button></td>
+      </tr>
+      <tr>
+        <td contenteditable data-ph="colmo"></td>
+        <td contenteditable data-ph=""></td>
+        <td><select><option>Nessuna anomalia</option><option selected>Da monitorare</option><option>Da approfondire</option></select></td>
+        <td contenteditable data-ph="n."></td>
+        <td class="act"><button type="button" class="delrow" title="Elimina riga">&times;</button></td>
+      </tr>
+      <tr>
+        <td contenteditable data-ph="converse / camino"></td>
+        <td contenteditable data-ph=""></td>
+        <td><select><option>Nessuna anomalia</option><option selected>Da monitorare</option><option>Da approfondire</option></select></td>
+        <td contenteditable data-ph="n."></td>
+        <td class="act"><button type="button" class="delrow" title="Elimina riga">&times;</button></td>
+      </tr>
+      <tr>
+        <td contenteditable data-ph="gronde"></td>
+        <td contenteditable data-ph=""></td>
+        <td><select><option>Nessuna anomalia</option><option selected>Da monitorare</option><option>Da approfondire</option></select></td>
+        <td contenteditable data-ph="n."></td>
+        <td class="act"><button type="button" class="delrow" title="Elimina riga">&times;</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <button type="button" class="addrow" id="addrow">+ Aggiungi una riga</button>
+
+  <h2>Documentazione fotografica</h2>
+  <div class="foto" id="foto">
+    <div class="slot">
+      <div class="ph"><input type="file" accept="image/*" id="f1"><label for="f1">Clicca per caricare la foto 1</label></div>
+      <div class="cap" contenteditable data-ph="1 — didascalia"></div>
+    </div>
+    <div class="slot">
+      <div class="ph"><input type="file" accept="image/*" id="f2"><label for="f2">Clicca per caricare la foto 2</label></div>
+      <div class="cap" contenteditable data-ph="2 — didascalia"></div>
+    </div>
+    <div class="slot">
+      <div class="ph"><input type="file" accept="image/*" id="f3"><label for="f3">Clicca per caricare la foto 3</label></div>
+      <div class="cap" contenteditable data-ph="3 — didascalia"></div>
+    </div>
+    <div class="slot">
+      <div class="ph"><input type="file" accept="image/*" id="f4"><label for="f4">Clicca per caricare la foto 4</label></div>
+      <div class="cap" contenteditable data-ph="4 — didascalia"></div>
+    </div>
+  </div>
+
+  <h2>Note</h2>
+  <div class="esito" style="background:#fff;border-left-color:var(--line)">
+    <span class="lab">Note</span>
+    <div class="txt" contenteditable data-ph="Indicazioni pratiche: zone da far vedere a un tecnico, punti da ricontrollare dopo il prossimo temporale, materiale consegnato al committente."></div>
+  </div>
+
+  <div class="limiti">
+    <strong>Limiti di questo documento</strong>
+    Questo report descrive quello che è visibile nelle riprese effettuate con drone nella data indicata. Non è una perizia e non ha valore di certificazione.
+    <ul>
+      <li>L'ispezione è <b>visiva e fotografica dall'esterno</b>: non comprende prove strumentali, verifiche strutturali, saggi o accessi alla copertura.</li>
+      <li>Non vengono valutate la tenuta all'acqua, la portanza dell'orditura né lo stato degli strati sottostanti il manto.</li>
+      <li>Le zone in ombra, coperte da vegetazione o non raggiungibili in sicurezza dal drone possono non essere state documentate.</li>
+      <li>Le indicazioni "da monitorare" e "da approfondire" segnalano solo cosa merita attenzione: <b>non</b> esprimono un giudizio sulla gravità né sulla sicurezza dell'edificio.</li>
+      <li>Per una valutazione tecnica o strutturale è necessario rivolgersi a un professionista abilitato.</li>
+      <li>Il volo è stato eseguito nel rispetto della normativa vigente sugli aeromobili a pilotaggio remoto.</li>
+    </ul>
+  </div>
+
+  <div class="firme">
+    <div class="firma">Data e luogo<br><br><span contenteditable data-ph=" "></span></div>
+    <div class="firma">L'operatore<br><br><span contenteditable data-ph=" "></span></div>
+  </div>
+
+  <div class="pie">
+    <span>Report di ispezione visiva con drone</span>
+    <span>Pag. 1</span>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var K='report-tetti-bozza', msg=document.getElementById('msg');
+  function nota(t){msg.textContent=t;setTimeout(function(){msg.textContent=''},2600)}
+
+  // --- colore del livello di attenzione ---
+  function tinta(s){s.className=s.selectedIndex===2?'l3':(s.selectedIndex===1?'l2':'')}
+  function legaSelect(s){tinta(s);s.addEventListener('change',function(){tinta(s)})}
+  document.querySelectorAll('#righe select').forEach(legaSelect);
+
+  // --- righe della tabella ---
+  var tb=document.getElementById('righe');
+  document.getElementById('addrow').addEventListener('click',function(){
+    var tr=tb.rows[0].cloneNode(true);
+    tr.querySelectorAll('[contenteditable]').forEach(function(c){c.textContent=''});
+    var s=tr.querySelector('select');s.selectedIndex=1;legaSelect(s);
+    tb.appendChild(tr);
+  });
+  tb.addEventListener('click',function(e){
+    var b=e.target.closest('.delrow');
+    if(b&&tb.rows.length>1)b.closest('tr').remove();
+  });
+
+  // --- foto: restano in questo browser, non vengono caricate da nessuna parte ---
+  document.getElementById('foto').addEventListener('change',function(e){
+    var inp=e.target; if(!inp.files||!inp.files[0])return;
+    var ph=inp.closest('.ph'), r=new FileReader();
+    r.onload=function(){
+      var img=ph.querySelector('img')||document.createElement('img');
+      img.src=r.result; img.alt='';
+      if(!img.parentNode)ph.insertBefore(img,ph.firstChild);
+      ph.classList.add('pieno');
+      ph.querySelector('label').textContent='Cambia';
+    };
+    r.readAsDataURL(inp.files[0]);
+  });
+
+  // --- bozza: solo testo, le foto sono troppo pesanti per lo spazio disponibile ---
+  function campi(){return document.querySelectorAll('.sheet [contenteditable]')}
+  document.getElementById('save').addEventListener('click',function(){
+    try{
+      var d={t:[],s:[]};
+      campi().forEach(function(c){d.t.push(c.innerHTML)});
+      document.querySelectorAll('#righe select').forEach(function(s){d.s.push(s.selectedIndex)});
+      d.n=tb.rows.length;
+      localStorage.setItem(K,JSON.stringify(d));
+      nota('Bozza salvata');
+    }catch(err){nota('Non riesco a salvare')}
+  });
+  document.getElementById('clear').addEventListener('click',function(){
+    if(!confirm('Svuotare tutti i campi e cancellare la bozza salvata?'))return;
+    try{localStorage.removeItem(K)}catch(err){}
+    location.reload();
+  });
+  document.getElementById('print').addEventListener('click',function(){print()});
+
+  (function ripristina(){
+    var raw; try{raw=localStorage.getItem(K)}catch(err){return}
+    if(!raw)return;
+    try{
+      var d=JSON.parse(raw);
+      while(tb.rows.length<d.n)document.getElementById('addrow').click();
+      var c=campi();
+      d.t.forEach(function(v,i){if(c[i])c[i].innerHTML=v});
+      document.querySelectorAll('#righe select').forEach(function(s,i){
+        if(d.s[i]!=null){s.selectedIndex=d.s[i];tinta(s)}
+      });
+      nota('Bozza ripristinata');
+    }catch(err){}
+  })();
+})();
+</script>
+</body>
+</html>
