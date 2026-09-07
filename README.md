@@ -1,6 +1,6 @@
-# Tetto a posto? — Ispezione tetti con drone a Mantova
+# Coppo d'occhio — Ispezione tetti con drone a Mantova
 
-Sito statico di **Tetto a posto?**, il servizio di ispezione tetti con drone a Mantova e
+Sito statico di **Coppo d'occhio**, il servizio di ispezione tetti con drone a Mantova e
 provincia. Un solo file HTML con dentro CSS e JavaScript, nessuna libreria, nessun font
 scaricato, nessuna richiesta a server esterni. Percorsi relativi: funziona sia online sia
 aprendo `index.html` con un doppio clic.
@@ -35,9 +35,9 @@ né recensioni, né anni di esperienza, né certificazioni, né prezzi.
 
 ## Il dominio
 
-Il nome è **Tetto a posto?** — con il punto interrogativo. Prima di comprare, verifica che `tettoaposto.it` sia libero
-su un registrar (Aruba, Register, Netsons…). Se è occupato, valuta `tettoaposto.com` o
-aggiungi la località: `tettoapostomantova.it`.
+Il nome è **Coppo d'occhio**, da "a colpo d'occhio". Prima di comprare, verifica che `coppodocchio.it` sia
+libero su un registrar (Aruba, Register, Netsons…). Se è occupato, valuta `coppodocchio.com` o
+aggiungi la località: `coppodocchiomantova.it`.
 
 Quando ce l'hai, sostituisci `https://www.esempio.it` ovunque.
 
