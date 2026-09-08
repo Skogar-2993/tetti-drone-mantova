@@ -13,13 +13,11 @@ Pagina: **12 KB** compressa. Fotografie: **279 KB** al primo schermo (solo quell
 Cerca e sostituisci in `index.html`, `report/index.html`, `privacy-policy/index.html`,
 `cookie-policy/index.html`, `sitemap.xml` e `robots.txt`:
 
-| Cerca | Sostituisci con |
-|---|---|
-| `nome@esempio.it` | la tua email |
-| `https://www.esempio.it` | il dominio, senza `/` finale |
-| `[Nome Cognome]` | il tuo nome |
+Il dominio è impostato su `https://www.tettosottocontrollo.it`.
 
-Telefono e WhatsApp sono già impostati su **+39 334 396 7314**.
+L'unico canale di contatto è **+39 334 396 7314**, telefono e WhatsApp: sul sito non
+compaiono nome proprio né email, per scelta. Resta però da completare il nome del
+titolare del trattamento nella privacy policy, che il GDPR richiede.
 
 Nel sito non compare nessuna partita IVA: il servizio è reso come **prestazione
 occasionale** da persona fisica, e i dati strutturati dichiarano una persona, non
@@ -39,7 +37,7 @@ Il nome è **Tetto sotto controllo**, da "tutto sotto controllo". Prima di compr
 `tettosottocontrollo.it` sia libero su un registrar (Aruba, Register, Netsons…). Se è occupato,
 valuta `tettosottocontrollo.com` o aggiungi la località: `tettosottocontrollomantova.it`.
 
-Quando ce l'hai, sostituisci `https://www.esempio.it` ovunque.
+Quando ce l'hai, sostituisci `https://www.tettosottocontrollo.it` ovunque.
 
 ## Pubblicazione
 
