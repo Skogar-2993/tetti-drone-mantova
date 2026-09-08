@@ -63,7 +63,9 @@ h3{font-size:1.26rem;letter-spacing:-.02em;line-height:1.25}
 p{margin:0}
 .wrap{width:var(--wrap);margin-inline:auto}
 /* spaziature: il respiro arriva da tipografia e allineamento, non da vuoti enormi */
-.sec{padding-block:clamp(3.6rem,5.6vw,5.75rem)}
+/* l'ancora sommava l'altezza della navbar al padding della sezione: due volte
+   lo stesso vuoto. Lo scalo, cosi il titolo si ferma sempre a 104px dal bordo. */
+.sec{padding-block:clamp(3.6rem,5.6vw,5.75rem);scroll-margin-top:calc(28px - clamp(3.6rem,5.6vw,5.75rem))}
 .label{display:block;font-family:var(--mono);font-size:.78rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
 .lead{font-size:clamp(1.14rem,1.5vw,1.35rem);line-height:1.5;color:var(--ink-2)}
 .h-top{margin-top:1.1rem}
