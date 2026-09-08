@@ -2,8 +2,9 @@
 
 Sito statico di **Tetto sotto controllo**, il servizio di ispezione tetti con drone a Mantova e
 provincia. Un solo file HTML con dentro CSS e JavaScript, nessuna libreria, nessun font
-scaricato, nessuna richiesta a server esterni. Percorsi relativi: funziona sia online sia
-aprendo `index.html` con un doppio clic.
+scaricato, nessuna richiesta a server esterni. I link interni usano URL con directory (`/`, `/privacy-policy/`), non `index.html`:
+serve a non creare indirizzi doppioni per i motori di ricerca. Di conseguenza la
+navigazione fra le pagine funziona solo servito da un server, non con un doppio clic.
 
 Pagina: **12 KB** compressa. Fotografie: **279 KB** al primo schermo (solo quella dell'hero),
 **1216 KB** in tutto scorrendo fino in fondo.
