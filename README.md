@@ -1,11 +1,11 @@
-# Coppo d'occhio — Ispezione tetti con drone a Mantova
+# Tetto sotto controllo — Ispezione tetti con drone a Mantova
 
-Sito statico di **Coppo d'occhio**, il servizio di ispezione tetti con drone a Mantova e
+Sito statico di **Tetto sotto controllo**, il servizio di ispezione tetti con drone a Mantova e
 provincia. Un solo file HTML con dentro CSS e JavaScript, nessuna libreria, nessun font
 scaricato, nessuna richiesta a server esterni. Percorsi relativi: funziona sia online sia
 aprendo `index.html` con un doppio clic.
 
-Pagina: **10 KB** compressa. Fotografie: **279 KB** al primo schermo (solo quella dell'hero),
+Pagina: **12 KB** compressa. Fotografie: **279 KB** al primo schermo (solo quella dell'hero),
 **1216 KB** in tutto scorrendo fino in fondo.
 
 ## Da sostituire prima di pubblicare
@@ -35,9 +35,9 @@ né recensioni, né anni di esperienza, né certificazioni, né prezzi.
 
 ## Il dominio
 
-Il nome è **Coppo d'occhio**, da "a colpo d'occhio". Prima di comprare, verifica che `coppodocchio.it` sia
-libero su un registrar (Aruba, Register, Netsons…). Se è occupato, valuta `coppodocchio.com` o
-aggiungi la località: `coppodocchiomantova.it`.
+Il nome è **Tetto sotto controllo**, da "tutto sotto controllo". Prima di comprare, verifica che
+`tettosottocontrollo.it` sia libero su un registrar (Aruba, Register, Netsons…). Se è occupato,
+valuta `tettosottocontrollo.com` o aggiungi la località: `tettosottocontrollomantova.it`.
 
 Quando ce l'hai, sostituisci `https://www.esempio.it` ovunque.
 
