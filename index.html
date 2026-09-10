@@ -21,7 +21,7 @@
 -->
 
 <title>Tetto sotto controllo — Ispezione tetti con drone a Mantova</title>
-<meta name="description" content="Ispezione tetti con drone a Mantova e provincia: controllo della copertura dall'alto per individuare tegole rotte, danni da grandine e anomalie, senza salire sul tetto.">
+<meta name="description" content="Ispezione tetti con drone a Mantova e provincia. Controllo la copertura dall'alto: tegole rotte, danni da grandine, anomalie. Senza salire sul tetto.">
 <link rel="canonical" href="https://www.tettosottocontrollo.it/">
 <meta name="theme-color" content="#FDFCFA">
 <meta name="robots" content="index,follow,max-image-preview:large">
@@ -302,6 +302,20 @@ p{margin:0}
 .dock .btn--wa{flex:2}
 @media(max-width:760px){.dock{display:flex}body{padding-bottom:88px}}
 
+/* ---------- banner cookie ---------- */
+.cookie-bar{position:fixed;inset:auto 0 0 0;z-index:150;background:var(--ink);color:#D8CFC6;padding:1rem 1.2rem;padding-bottom:calc(1rem + env(safe-area-inset-bottom))}
+.cookie-bar[hidden]{display:none}
+.cookie-in{max-width:760px;margin-inline:auto;display:flex;flex-wrap:wrap;gap:.9rem 1.4rem;align-items:center;justify-content:space-between}
+.cookie-in p{margin:0;font-size:.92rem;line-height:1.5;flex:1 1 320px}
+.cookie-in a{color:#C7BBB1;text-decoration-color:currentColor}
+.cookie-btns{display:flex;gap:.6rem;flex-shrink:0}
+.cookie-btns button{font:inherit;font-size:.88rem;font-weight:600;padding:.6rem 1.1rem;border-radius:8px;cursor:pointer;border:1px solid transparent}
+.cookie-btns .cb-accept{background:var(--accent);color:#fff}
+.cookie-btns .cb-accept:hover{background:var(--accent-d)}
+.cookie-btns .cb-reject{background:transparent;color:#D8CFC6;border-color:rgba(255,255,255,.28)}
+.cookie-btns .cb-reject:hover{border-color:rgba(255,255,255,.55);color:#fff}
+@media(max-width:760px){.cookie-bar{bottom:calc(78px + env(safe-area-inset-bottom))}}
+
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{transition:none!important;animation:none!important}
@@ -563,6 +577,7 @@ p{margin:0}
     <nav aria-label="Informazioni legali">
       <a href="/privacy-policy/">Privacy</a>
       <a href="/cookie-policy/">Cookie</a>
+      <a href="#" id="cookieManage">Preferenze cookie</a>
     </nav>
     <p class="fine">Servizio reso da privato come prestazione occasionale · Pilota con attestato e copertura assicurativa RC · L&rsquo;ispezione è visiva e fotografica e non sostituisce una perizia tecnica o una verifica strutturale.</p>
   </div>
@@ -571,6 +586,52 @@ p{margin:0}
 <nav class="dock" aria-label="Contatti rapidi">
   <a class="btn btn--wa" href="https://wa.me/393343967314?text=Ciao%2C%20vorrei%20richiedere%20un%27ispezione%20del%20tetto.%20Comune%3A%20" rel="noopener">Richiedi un'ispezione su WhatsApp</a>
 </nav>
+
+<div class="cookie-bar" id="cookieBar" role="dialog" aria-live="polite" aria-label="Preferenze cookie" hidden>
+  <div class="cookie-in">
+    <p>Uso Google Analytics solo per capire quante persone visitano il sito. Nessun dato viene usato per pubblicità. <a href="/cookie-policy/">Maggiori informazioni</a>.</p>
+    <div class="cookie-btns">
+      <button type="button" class="cb-reject" id="cookieReject">Rifiuta</button>
+      <button type="button" class="cb-accept" id="cookieAccept">Accetta</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var GA_ID='G-51HCNHMPDR',KEY='cookie-consent';
+  var bar=document.getElementById('cookieBar');
+
+  function getConsent(){try{return localStorage.getItem(KEY)}catch(e){return null}}
+  function setConsent(v){try{localStorage.setItem(KEY,v)}catch(e){}}
+
+  function loadGA(){
+    if(window.gtag)return;
+    var s=document.createElement('script');
+    s.async=true;
+    s.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;
+    document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[];
+    window.gtag=function(){dataLayer.push(arguments)};
+    gtag('js',new Date());
+    gtag('config',GA_ID);
+  }
+
+  var consent=getConsent();
+  if(consent==='granted'){loadGA()}
+  else if(consent!=='denied'){bar.hidden=false}
+
+  document.getElementById('cookieAccept').addEventListener('click',function(){
+    setConsent('granted');bar.hidden=true;loadGA();
+  });
+  document.getElementById('cookieReject').addEventListener('click',function(){
+    setConsent('denied');bar.hidden=true;
+  });
+  document.getElementById('cookieManage').addEventListener('click',function(e){
+    e.preventDefault();bar.hidden=false;
+  });
+})();
+</script>
 
 <script>
 (function(){
